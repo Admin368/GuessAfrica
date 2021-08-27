@@ -3,15 +3,17 @@ var countryIndex = 0;
 var numberOfCountries = 56;
 var won = 0;
 var lost = 0;
-var wonColor = "aqua";
+var wonColor = "green";
 var lostColor = "red";
+var mistakeColor = "yellow";
 var idleColor = "#E2B727";
 
 var textColor = "#E2B727";
 var backgroundColor = "#323437";
 
 var clockedStarted = false;
-var time = 30;
+var maxTime = 60;
+var time = maxTime;
 var clockTimer;
 
 var state = "preGame"; //preGame //Game //postGame
@@ -29,46 +31,59 @@ $(document).ready(function() {
     }
 
     $('path').click(function() {
-        if (clockedStarted == false) {
-            clockedStarted = true;
-            startClock();
-        }
-        if (this.id == countries[countryIndex]) {
-            $("#" + this.id).css("fill", "green");
-            console.log(this.id);
-            // countryIndex++;
-            write(countries[countryIndex]);
-            won++;
-        } else {
-            lost++;
-            $("#" + this.id).css("fill", "yellow");
-            $("#" + countries[countryIndex]).css("fill", "red");
+        if (state != "postGame") {
+            if (clockedStarted == false) {
+                clockedStarted = true;
+                startClock();
+            }
+            if (this.id == countries[countryIndex]) {
+                $("#" + this.id).css("fill", wonColor);
+                console.log(this.id);
+                // countryIndex++;
+                write(countries[countryIndex]);
+                won++;
+            } else {
+                lost++;
+                if (('#' + this.id).css("fill") != lostColor) {
+                    write("Wrong");
+                }
+                $("#" + this.id).css("fill", mistakeColor);
 
+                $("#" + countries[countryIndex]).css("fill", "red");
+
+            }
+            countryIndex++;
+            updateInfo();
         }
-        countryIndex++;
-        updateInfo();
+
     });
 
-    $("#reset").click(function() {
-        // window.location.reload();
-        $('path').css("fill", idleColor);
-        won = 0;
-        lost = 0;
-        clearInterval(clockTimer);
-        time = 30;
-        clockedStarted = false;
-        updateInfo();
-
-    });
+    $("#reset").click(function() { reset(); });
 });
 
 function startClock() {
     clockTimer = setInterval(function() {
         time--;
-        if (time <= 0) { clearInterval(clockTimer); }
-        $('#clock').text(time);
-        console.log(time);
+        if (time <= 0) {
+            clearInterval(clockTimer);
+
+        } else {
+            $('#clock').text(time);
+            console.log(time);
+        }
     }, 1000);
+}
+
+function reset() {
+    // window.location.reload();
+    $('path').css("fill", idleColor);
+    won = 0;
+    lost = 0;
+    clearInterval(clockTimer);
+    time = 30;
+    clockedStarted = false;
+    countryIndex = 0;
+    updateInfo();
 }
 
 function setBody() {
