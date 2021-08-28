@@ -6,7 +6,7 @@ var lost = 0;
 var wonColor = "green";
 var lostColor = "red";
 var mistakeColor = "yellow";
-var idleColor = "#E2B727";
+var idleColor = "#323437";
 
 var textColor = "#E2B727";
 var backgroundColor = "#323437";
@@ -18,7 +18,7 @@ var clockTimer;
 
 var state = "preGame"; //preGame //Game //postGame
 
-let countries = ["Algeria", "Angola", "Benin", "Botswana", "Burkina-Faso", "Burundi", "Cameroon", "Central-African-Republic", "Chad", "Comoros", "Congo", "Democratic-Republic-of-Congo", "Ivory-Coast", "Djibouti", "Egypt", "Equatorial-Guinea", "Eritrea", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali", "Mauritania", "Mayotte", "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria", "Reunion", "Rwanda", "Saint-Helena", "Sao-Tome-and-Principe", "Senegal", "Seychelles", "Sierra-Leone", "Somalia", "South-Africa", "South-Sudan", "Sudan", "Swaziland", "Tanzania", "Togo", "Tunisia", "Uganda", "Western-Sahara", "Zambia", "Zimbabwe"];
+let countries = ["Algeria", "Angola", "Benin", "Botswana", "Burkina-Faso", "Burundi", "Cameroon", "Central-African-Republic", "Chad", "Congo", "Democratic-Republic-of-Congo", "Ivory-Coast", "Djibouti", "Egypt", "Equatorial-Guinea", "Eritrea", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali", "Mauritania", "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda", "Saint-Helena", "Sao-Tome-and-Principe", "Senegal", "Seychelles", "Sierra-Leone", "Somalia", "South-Africa", "South-Sudan", "Sudan", "Swaziland", "Tanzania", "Togo", "Tunisia", "Uganda", "Western-Sahara", "Zambia", "Zimbabwe"];
 // let countries = ["Algeria", "Angola", "Benin", "Botswana", "Burkina-Faso", "Burundi", "Cameroon", "Cape-Verde", "Central-African-Republic", "Chad", "Comoros", "Congo", "Democratic-Republic-of-Congo", "Ivory-Coast", "Djibouti", "Egypt", "Equatorial-Guinea", "Eritrea", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali", "Mauritania", "Mauritius", "Mayotte", "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria", "Reunion", "Rwanda", "Saint-Helena", "Sao-Tome-and-Principe", "Senegal", "Seychelles", "Sierra-Leone", "Somalia", "South-Africa", "South-Sudan", "Sudan", "Swaziland", "Tanzania", "Togo", "Tunisia", "Uganda", "Western-Sahara", "Zambia", "Zimbabwe"];
 $(document).ready(function() {
     updateInfo();
